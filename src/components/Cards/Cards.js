@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import CardDetails from "./CardDetails";
 
-const Cards = ({results}) => {
+const Cards = ({page,results}) => {
 
   let display;
   
@@ -8,7 +10,15 @@ const Cards = ({results}) => {
     display = results.map(x => {
       let {id, name, image, location, status, species} = x;
       return (
-        <div key={id} className="container-fluid card col-sm-12 col-lg-6 mb-3 g-0">
+        
+        
+        <div key={id} className="card col-sm-12 col-lg-6 mb-3 g-0">
+          <Link
+          style={{ textDecoration: "none" }}
+          to={`${page}${id}`}
+          key={id}
+          className="text-dark"
+        >
           <div className="row g-0">
             <div className="col-md-4">
               <img src={image} className="img-fluid rounded-1" alt="..."/>
@@ -40,7 +50,7 @@ const Cards = ({results}) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div></Link>
         </div>
       );
     });
