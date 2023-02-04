@@ -3,13 +3,32 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 import Cards from "./components/Cards/Cards";
-import Filter from "./components/Filter/Filter";
 import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
+import CardDetails from "./components/Cards/CardDetails";
 
-//import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+
+  return (
+    <Router>
+      <div className="App">
+        <h1 className="text-center ubuntu my-4">
+          Rick & Morty
+        </h1>
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/:id" element={<CardDetails />} />
+
+      </Routes>
+  </Router>
+  );
+}
+
+const Home = () => {
 
   let [pageNumber, setPageNumber] = useState(1);
   let [search, setSearch] = useState("");
@@ -23,10 +42,10 @@ function App() {
       let data = await fetch(api).then((res) => res.json());
       updateFetchData(data);
     })();
-  }, [api])
+  }, [api]);
 
   return (
-    <div className="App">
+    <div className="Home">
       <h1 className="text-center ubuntu my-4">
         Rick & Morty
       </h1>
@@ -40,7 +59,7 @@ function App() {
         <div className="row">
           <div className="col-12 align-self-center">
             <div className="row">
-              <Cards results={results}/>
+              <Cards page="/" results={results}/>
             </div>
           </div>
         </div>
@@ -53,7 +72,8 @@ function App() {
       />
       
     </div>
+
   );
-}
+};
 
 export default App;
