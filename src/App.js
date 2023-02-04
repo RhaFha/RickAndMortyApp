@@ -6,6 +6,7 @@ import Cards from "./components/Cards/Cards";
 import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
 import CardDetails from "./components/Cards/CardDetails";
+import Navbar from './components/Navbar/Navbar';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -14,9 +15,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1 className="text-center ubuntu my-4">
-          Rick & Morty
-        </h1>
+        <Navbar />
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -46,9 +45,6 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <h1 className="text-center ubuntu my-4">
-        Rick & Morty
-      </h1>
 
       <Search 
         setSearch={setSearch}

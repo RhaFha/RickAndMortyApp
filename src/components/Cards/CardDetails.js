@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { redirect } from "react-router-dom";
+
 
 const CardDetails = () => {
   let { id } = useParams();
@@ -17,6 +19,7 @@ const CardDetails = () => {
   }, [api]);
 
   return (
+    
     <div className="container d-flex justify-content-center mb-5">
       <div className="d-flex flex-column gap-3">
         <h1 className="text-center">{name}</h1>
