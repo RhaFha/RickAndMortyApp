@@ -6,7 +6,7 @@ const Cards = ({results}) => {
   
   if(results){
     display = results.map(x => {
-      let {id, name, image, location, status, species} = x; console.log(x);
+      let {id, name, image, location, status, species} = x;
       return (
         <div key={id} className="container-fluid card col-sm-12 col-lg-6 mb-3 g-0">
           <div className="row g-0">
@@ -21,11 +21,11 @@ const Cards = ({results}) => {
                     <small className="text-muted">
                     {(() => {
                     if(status === "Dead"){
-                      return (<span class="badge bg-danger">{status}</span>)
+                      return (<span className="badge bg-danger">{status}</span>)
                     }else if(status === "Alive"){
-                      return (<span class="badge bg-success">{status}</span>)
+                      return (<span className="badge bg-success">{status}</span>)
                     }else{
-                      return (<span class="badge bg-secondary">{status}</span>)
+                      return (<span className="badge bg-secondary">{status}</span>)
                     }
                     })()}
                        &nbsp; {species}
