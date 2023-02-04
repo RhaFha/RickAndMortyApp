@@ -17,7 +17,6 @@ function App() {
   let {info, results} = fetchedData;
 
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
-  console.log(fetchedData);
 
   useEffect(() => {
     (async function () {
